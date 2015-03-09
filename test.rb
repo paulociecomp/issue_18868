@@ -23,12 +23,14 @@ ActiveRecord::Base.logger = Logger.new(STDOUT)
 ActiveRecord::Schema.define do
   create_table :blog_posts, force: true  do |t|
     t.text :content
-    t.boolean :preview
+    # t.boolean :preview
   end
 
   # change_table :posts, force: true do |t|
   #   t.change :preview, :boolean, :null => false, :default => false
   # end
+  
+  add_column :blog_posts, :preview, :text, :null => false
 
   change_column :blog_posts, :preview, :boolean, :null => false, :default => false
 
